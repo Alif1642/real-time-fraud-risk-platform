@@ -1,0 +1,2 @@
+# Optional imbalance experiments such as SMOTE. Never apply before temporal splitting.
+imbalanced-learn>=0.14,<1.0

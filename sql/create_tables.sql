@@ -1,0 +1,1 @@
+\ir 'create table.sql'

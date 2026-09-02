@@ -1,0 +1,4 @@
+# Optional monitoring add-on.
+# Evidently 0.7.21 advertises Python classifiers through 3.13, so on Python 3.14 use this only
+# after `pip install -r requirements-evidently.txt` succeeds on your machine, or run it in Docker/Python 3.13.
+evidently>=0.7.21,<0.8

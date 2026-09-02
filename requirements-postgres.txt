@@ -1,0 +1,3 @@
+# Optional PostgreSQL infrastructure. Core ML/API/dashboard dependencies are included.
+-r requirements.txt
+psycopg[binary]>=3.3.4,<4.0

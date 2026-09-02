@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "real-time-fraud-risk-platform"
+version = "0.2.0"
+description = "Portfolio-grade fraud risk scoring, explainability, API, monitoring and dashboard platform"
+requires-python = ">=3.11,<3.15"
+
+[tool.setuptools.packages.find]
+include = ["src*", "api*", "app*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311", "py312", "py313", "py314"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"

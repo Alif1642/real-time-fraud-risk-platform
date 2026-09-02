@@ -1,0 +1,20 @@
+{
+  "pr_auc": 0.19774155929936688,
+  "roc_auc": 0.6738356164383561,
+  "precision": 0.2857142857142857,
+  "recall": 0.1,
+  "fraud_capture_rate": 0.1,
+  "f1": 0.14814814814814814,
+  "false_positive_rate": 0.00684931506849315,
+  "brier_score": 0.025824471251570752,
+  "threshold": 0.51,
+  "tn": 725,
+  "fp": 5,
+  "fn": 18,
+  "tp": 2,
+  "fixed_fpr": 0.01,
+  "fixed_fpr_threshold": 0.9237513994903647,
+  "recall_at_fixed_fpr": 0.1,
+  "precision_at_fixed_fpr": 1.0,
+  "business_cost_at_validation_threshold": 9055.0
+}

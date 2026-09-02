@@ -1,0 +1,41 @@
+# Local environment / secrets
+.env
+.venv/
+venv/
+.vscode/
+
+# Python caches / tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local experiment/runtime state
+mlruns/
+mlartifacts/
+logs/
+*.log
+*.db
+
+# IEEE-CIS raw and derived data are local only
+data/raw/*.csv
+data/raw/*.zip
+data/processed/*
+!data/processed/.gitkeep
+
+# Locally generated model artifacts
+models/*
+!models/.gitkeep
+artifacts/
+
+# OS/editor/temp/archive files
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.zip
