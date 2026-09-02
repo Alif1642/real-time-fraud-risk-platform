@@ -28,9 +28,14 @@ This repository is structured as an ML engineering project rather than a noteboo
 
 ## 🎥 Demo
 
-A public deployment URL is not listed until a deployment has been verified.
+## 🚀 Live Demo
+👉 https://real-time-fraud-risk-platform.streamlit.app/
 
-For the portfolio version, add these real screenshots after running the current repository successfully:
+> Interactive portfolio/research demo. This project is not a production banking fraud system.
+
+## 🎥 Demo Screenshots
+
+The following screenshots showcase the major components of the platform:
 
 ```text
 docs/
@@ -731,3 +736,11 @@ Keep the demonstration under one minute and use only output from the current wor
 ## License
 
 See [LICENSE](LICENSE).
+
+## 👨‍💻 Author
+
+**Md. Alif Hossen**  
+CSE Graduate | Data Science & Machine Learning
+
+🔗 **GitHub:** [Alif1642](https://github.com/Alif1642)  
+🔗 **LinkedIn:** [Md. Alif Hossen](https://www.linkedin.com/in/md-alif-hossen1642/)
