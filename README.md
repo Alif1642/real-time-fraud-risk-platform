@@ -1,4 +1,4 @@
-# Real-Time Transaction Fraud Risk & Monitoring Platformmm
+# Real-Time Transaction Fraud Risk & Monitoring Platformmmm
 
 > An end-to-end machine learning portfolio project for transaction fraud-risk scoring, calibrated probability estimation, cost-sensitive decisioning, explainability, API inference, interactive analysis, monitoring, and optional prediction-event persistence.
 
