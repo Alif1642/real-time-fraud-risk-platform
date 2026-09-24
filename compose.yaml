@@ -1,0 +1,45 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000
+    environment:
+      ENABLE_DATABASE: "false"
+      MODEL_DIR: /app/models
+      REPORT_DIR: /app/reports
+      CORS_ORIGINS: http://localhost:8501
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models:ro
+      - ./reports:/app/reports:ro
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+      interval: 15s
+      timeout: 5s
+      start_period: 20s
+      retries: 5
+    restart: unless-stopped
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      API_BASE_URL: http://api:8000
+      MODEL_DIR: /app/models
+      REPORT_DIR: /app/reports
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./models:/app/models:ro
+      - ./reports:/app/reports:ro
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
