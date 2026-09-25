@@ -39,3 +39,6 @@ Thumbs.db
 *.tmp
 *.bak
 *.zip
+
+# Local training outputs
+training-output/
