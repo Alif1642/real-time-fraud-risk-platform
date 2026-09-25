@@ -1,0 +1,46 @@
+{
+  "raw_training_columns": [
+    "TransactionID",
+    "TransactionDT",
+    "TransactionAmt",
+    "ProductCD",
+    "card1",
+    "card2",
+    "card3",
+    "card4",
+    "card5",
+    "card6",
+    "addr1",
+    "addr2",
+    "dist1",
+    "P_emaildomain",
+    "R_emaildomain",
+    "id_01",
+    "id_02",
+    "DeviceType",
+    "DeviceInfo"
+  ],
+  "required_inference_columns": [
+    "TransactionAmt"
+  ],
+  "optional_inference_columns": [
+    "TransactionID",
+    "TransactionDT",
+    "ProductCD",
+    "card1",
+    "card2",
+    "card3",
+    "card4",
+    "card5",
+    "card6",
+    "addr1",
+    "addr2",
+    "dist1",
+    "P_emaildomain",
+    "R_emaildomain",
+    "id_01",
+    "id_02",
+    "DeviceType",
+    "DeviceInfo"
+  ]
+}

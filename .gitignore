@@ -28,9 +28,15 @@ data/raw/*.zip
 data/processed/*
 !data/processed/.gitkeep
 
-# Locally generated model artifacts
+# Production model artifacts
 models/*
 !models/.gitkeep
+!models/model.joblib
+!models/preprocessor.joblib
+!models/calibrator.joblib
+!models/feature_schema.json
+!models/model_metadata.json
+!models/threshold.json
 artifacts/
 
 # OS/editor/temp/archive files
