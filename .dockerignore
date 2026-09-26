@@ -19,9 +19,6 @@ mlruns
 mlartifacts
 data/raw
 data/processed
-models/*.joblib
-models/*.pkl
-models/*.pickle
 *.zip
 .DS_Store
 Thumbs.db
