@@ -6,17 +6,17 @@
 
 ## 1. Dataset description
 
-- Mode: `ieee_cis_sample`
-- Loaded training shape: `5,000 × 25` selected raw columns
-- Fraud count: `109`
-- Fraud ratio: `2.180000%`
+- Mode: `ieee_cis_full`
+- Loaded training shape: `590,540 × 25` selected raw columns
+- Fraud count: `20,663`
+- Fraud ratio: `3.499001%`
 - Raw IEEE-CIS transaction columns are intentionally reduced to a documented local-machine feature subset for the model pipeline.
 
 ## 2. Data validation
 
 - Duplicate TransactionID rows: `0`
 - Missing target rows: `0`
-- Overall selected-frame missing rate: `25.616800%`
+- Overall selected-frame missing rate: `24.379016%`
 - Infinite numeric values: `0`
 
 ## 3. Preprocessing
@@ -33,11 +33,11 @@ Chronological split: oldest `70%` training, next `15%` validation, latest `15%` 
 
 ## 6. Models compared
 
-| model    |   pr_auc |   roc_auc |   precision |   recall |   fraud_capture_rate |       f1 |   false_positive_rate |   brier_score |   threshold |   tn |   fp |   fn |   tp |   fixed_fpr |   fixed_fpr_threshold |   recall_at_fixed_fpr |   precision_at_fixed_fpr |   business_cost |   train_seconds | calibration_method   |   fit_iterations | converged_within_budget   |
-|:---------|---------:|----------:|------------:|---------:|---------------------:|---------:|----------------------:|--------------:|------------:|-----:|-----:|-----:|-----:|------------:|----------------------:|----------------------:|-------------------------:|----------------:|----------------:|:---------------------|-----------------:|:--------------------------|
-| logistic | 0.398669 |  0.802167 |    0.833333 | 0.384615 |             0.384615 | 0.526316 |            0.00276243 |     0.0263273 |        0.33 |  361 |    1 |    8 |    5 |        0.01 |              0.279453 |              0.461538 |                 0.857143 |            4010 |        0.487533 | isotonic             |               20 | False                     |
-| lightgbm | 0.596206 |  0.949001 |    0.8      | 0.307692 |             0.307692 | 0.444444 |            0.00276243 |     0.0219052 |        0.51 |  361 |    1 |    9 |    4 |        0.01 |              0.358025 |              0.461538 |                 0.666667 |            3530 |        0.607353 | identity             |              100 | False                     |
-| xgboost  | 0.549645 |  0.954951 |    0.777778 | 0.538462 |             0.538462 | 0.636364 |            0.00552486 |     0.0256608 |        0.35 |  360 |    2 |    6 |    7 |        0.01 |              0.355446 |              0.538462 |                 0.777778 |            3035 |        0.647529 | identity             |               -1 | True                      |
+| model    |   pr_auc |   roc_auc |   precision |     recall |   fraud_capture_rate |         f1 |   false_positive_rate |   brier_score |   threshold |    tn |   fp |   fn |   tp |   fixed_fpr |   fixed_fpr_threshold |   recall_at_fixed_fpr |   precision_at_fixed_fpr |   business_cost |   train_seconds | calibration_method   |   fit_iterations | converged_within_budget   |
+|:---------|---------:|----------:|------------:|-----------:|---------------------:|-----------:|----------------------:|--------------:|------------:|------:|-----:|-----:|-----:|------------:|----------------------:|----------------------:|-------------------------:|----------------:|----------------:|:---------------------|-----------------:|:--------------------------|
+| logistic | 0.155269 |  0.774828 |    0.8      | 0.00276052 |           0.00276052 | 0.00550206 |           2.33416e-05 |     0.0297243 |        0.71 | 42841 |    1 | 1445 |    4 |        0.01 |              0.265686 |              0.138026 |                 0.318979 |          645315 |         38.0282 | sigmoid              |               79 | True                      |
+| lightgbm | 0.329674 |  0.841094 |    0.672457 | 0.187026   |           0.187026   | 0.292657   |           0.00308109  |     0.0259126 |        0.51 | 42710 |  132 | 1178 |  271 |        0.01 |              0.292456 |              0.282264 |                 0.48982  |          524820 |         17.9023 | sigmoid              |              100 | False                     |
+| xgboost  | 0.316839 |  0.824349 |    0.678133 | 0.190476   |           0.190476   | 0.297414   |           0.00305775  |     0.0261578 |        0.49 | 42711 |  131 | 1173 |  276 |        0.01 |              0.286112 |              0.276052 |                 0.483092 |          534125 |         17.9526 | sigmoid              |               -1 | True                      |
 
 ## 7. Model selection
 
@@ -45,43 +45,43 @@ Selected model: **lightgbm** using validation PR-AUC as the model-selection metr
 
 ## 8. Calibration
 
-Selected calibration method: **identity**. Candidate calibration mappings are selected by Brier score inside the calibration window, then the chosen mapping is refit on that calibration window before threshold selection.
+Selected calibration method: **sigmoid**. Candidate calibration mappings are selected by Brier score inside the calibration window, then the chosen mapping is refit on that calibration window before threshold selection.
 
 ## 9. Threshold optimization
 
 Frozen block threshold: **0.510000**. It was selected only on the threshold-selection validation window using the configured business-cost function (FP=10.0, FN=500.0, REVIEW=5.0).
 
-Validation PR-AUC: `0.5962063914493065`  
-Validation business cost: `3530.0`
+Validation PR-AUC: `0.32967369149661563`  
+Validation business cost: `524820.0`
 
 ## 10. Final metrics — LOCAL IEEE-CIS HOLDOUT RESULTS
 
 ```json
 {
-  "pr_auc": 0.19774155929936688,
-  "roc_auc": 0.6738356164383561,
-  "precision": 0.2857142857142857,
-  "recall": 0.1,
-  "fraud_capture_rate": 0.1,
-  "f1": 0.14814814814814814,
-  "false_positive_rate": 0.00684931506849315,
-  "brier_score": 0.025824471251570752,
+  "pr_auc": 0.37670677162447275,
+  "roc_auc": 0.8496966186172821,
+  "precision": 0.7531194295900179,
+  "recall": 0.27408368472267275,
+  "fraud_capture_rate": 0.27408368472267275,
+  "f1": 0.40190249702734837,
+  "false_positive_rate": 0.003239841867646027,
+  "brier_score": 0.02703600782352769,
   "threshold": 0.51,
-  "tn": 725,
-  "fp": 5,
-  "fn": 18,
-  "tp": 2,
+  "tn": 85221,
+  "fp": 277,
+  "fn": 2238,
+  "tp": 845,
   "fixed_fpr": 0.01,
-  "fixed_fpr_threshold": 0.9237513994903647,
-  "recall_at_fixed_fpr": 0.1,
-  "precision_at_fixed_fpr": 1.0,
-  "business_cost_at_validation_threshold": 9055.0
+  "fixed_fpr_threshold": 0.363597221064115,
+  "recall_at_fixed_fpr": 0.32954914044761596,
+  "precision_at_fixed_fpr": 0.5506775067750678,
+  "business_cost_at_validation_threshold": 993880.0
 }
 ```
 
 ## 11. Confusion matrix
 
-TN=725, FP=5, FN=18, TP=2
+TN=85221, FP=277, FN=2238, TP=845
 
 See `reports/figures/lightgbm_test_confusion_matrix.png`.
 

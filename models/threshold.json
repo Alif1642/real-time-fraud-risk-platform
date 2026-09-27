@@ -1,5 +1,5 @@
 {
-  "block_threshold": 0.99,
+  "block_threshold": 0.51,
   "review_lower_bound": 0.3,
   "selected_on": "validation_threshold_window"
 }

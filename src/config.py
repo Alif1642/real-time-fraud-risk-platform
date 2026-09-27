@@ -33,7 +33,7 @@ class Settings:
     project_root: Path = PROJECT_ROOT
     random_state: int = _int("RANDOM_STATE", 42)
     model_n_estimators: int = _int("MODEL_N_ESTIMATORS", 100)
-    logistic_max_iter: int = _int("LOGISTIC_MAX_ITER", 20)
+    logistic_max_iter: int = _int("LOGISTIC_MAX_ITER", 500)
     train_fraction: float = _float("TRAIN_FRACTION", 0.70)
     validation_fraction: float = _float("VALIDATION_FRACTION", 0.15)
     test_fraction: float = _float("TEST_FRACTION", 0.15)

@@ -46,5 +46,7 @@ Thumbs.db
 *.bak
 *.zip
 
-# Local training outputs
+# Local retraining backups
+models_backup_before_retrain/
+reports_backup_before_retrain/
 training-output/

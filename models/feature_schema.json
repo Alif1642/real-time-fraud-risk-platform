@@ -15,8 +15,13 @@
     "dist1",
     "P_emaildomain",
     "R_emaildomain",
+    "C1",
+    "C2",
+    "D1",
+    "D2",
     "id_01",
     "id_02",
+    "id_31",
     "DeviceType",
     "DeviceInfo"
   ],
@@ -38,8 +43,13 @@
     "dist1",
     "P_emaildomain",
     "R_emaildomain",
+    "C1",
+    "C2",
+    "D1",
+    "D2",
     "id_01",
     "id_02",
+    "id_31",
     "DeviceType",
     "DeviceInfo"
   ]
